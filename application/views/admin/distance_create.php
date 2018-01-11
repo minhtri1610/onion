@@ -16,19 +16,19 @@
                     <div class="content05-main">
                         <div class="content05-main-inner">
                             <div>
-                                <form action="<?php echo site_url('admin/edit-subject/'.$get_subject['id'])?>" method="post">
+                                <form action="<?php echo site_url('admin/create-distance')?>" method="post">
                                     <div class="form-group">
-                                        <label class="col-md-2 col-xs-5">
-                                            科目コード
+                                        <label class="col-md-2 col-xs-7">
+                                            距離コード
                                         </label>
-                                        <input class="form-control col-md-2" type="text" name="subject_code" value="<?php echo $get_subject['subject_code']?>">
+                                        <input class="form-control col-md-2" type="number" name="distance_code" required min="1">
                                     </div>
                                     <br>
                                     <div class="form-group">
-                                        <label class="col-md-2 col-xs-5">
-                                            科目名
+                                        <label class="col-md-2 col-xs-7">
+                                            距離名
                                         </label>
-                                        <input class="form-control col-md-4" type="text" name="subject_name" value="<?php echo $get_subject['subject_name']?>">
+                                        <input class="form-control col-md-4" type="number" name="distance_name" min="25" required>
                                     </div>
                                     <br>
                                     <div class="form-group">

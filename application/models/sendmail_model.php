@@ -31,13 +31,14 @@ class Sendmail_model extends MY_Model {
             "smtp_pass" => "6yAsWogWAaBqDO3aKkunNWDp",
             "smtp_crypto" => "",
             "wrapchars"  => "999",  // ワードラップがマルチバイトに対応していないため、ワードラップ時に文字化けが発生する。ワードラップしないような文字数を設定
+
         );
 
         mb_language("Japanese");
         mb_internal_encoding("UTF-8");
         $this->email->initialize($config);
-        $this->set_from($this->configVar['mail']['from']['default']);
-        $this->set_to($this->configVar['mail']['to']['default']);
+        // $this->set_from($this->configVar['mail']['from']['default']);
+        // $this->set_to($this->configVar['mail']['to']['default']);
     }
 
     /**
@@ -135,7 +136,6 @@ class Sendmail_model extends MY_Model {
             logerr("no to or no from");
             throw new Exception();
         }
-
         if (ENVIRONMENT != 'local') {
             $result = $this->email->send();
             loginfo($this->email->print_debugger());

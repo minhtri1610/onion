@@ -16,14 +16,16 @@
             あなたのメールアドレスへ<br class="hidden-xs hidden-sm">
             ログインのための仮パスワードを発行します。
           </p>
-          <form class="content02-form" action="" method="">
+          <form class="content02-form" action="" method="" id = "forgot_pass">
             <div class="content02-form-text content02-form-text-1 mb-xs-30">
               <p class="content02-text-1">メールアドレス</p>
-              <input type="text" name="content02-form-text-3" value="">
+              <input type="text" name="email_forgot_pass" id = "email_forgot_pass" value="">
             </div>
-
+            <div class="content02-text-1">
+              <div class="err_msg"></div>
+            </div>
             <div class="content02-form-submit mb-xs-30">
-              <input class="alpha" type="submit" value="送信">
+              <input class="alpha" type="button" id = "send_mail_fgp" value="送信">
             </div>
             <p class="content02-forget-pass">
               ※メールアドレスが無い場合は、身分証明書をご持参の上、<br class="hidden-xs hidden-sm">
@@ -51,7 +53,7 @@
       </div>
 
       <div class="content02-form-submit mb-xs-30">
-        <a href="#">トップへ戻る</a>
+        <a href="<?php echo base_url()?>">トップへ戻る</a>
       </div>
 
     </section><!-- .content02 -->
@@ -68,18 +70,3 @@
   <span class="pagetop170-text">PAGE TOP</span>
 </button>
 
-
-<script>
-    $(function() {
-        $('#page_complete').css('display','none');
-
-        $('article').on('click', 'input[type="submit"]', function(event) {
-            event.preventDefault();
-            $('#page_init').css('display','none');
-            $('#page_complete').css('display','block');
-        });
-    })
-
-
-
-</script>

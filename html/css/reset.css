@@ -512,7 +512,8 @@ button,
 html [type=button], /* for Android 4 */
 [type=reset],
 [type=submit] {
-  background-color: transparent;
+  font-weight: bold;
+  background-color: #528CE0;
   -webkit-appearance: none; /* for iOS */
 }
 
@@ -538,6 +539,7 @@ select {
   text-transform: none;
   color: inherit;
   outline: none;
+  width: 100%;
 }
 
 select {

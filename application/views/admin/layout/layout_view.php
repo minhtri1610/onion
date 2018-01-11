@@ -11,15 +11,28 @@
     <meta http-equiv="content-language" content="ja">
 
     <!-- jQuery (necessary for Bootstrap JavaScript plugins) -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="/css/admin.css?<?php echo time(); ?>">
     <link rel="stylesheet" href="/css/jquery-ui.css">
 
-<script type="text/javascript"> 
-<!-- 
+    <!-- -->
+    <link rel="stylesheet" href="/fonts/fontello-custom/css/fontello.css" media="all" />
+    <link rel="stylesheet" href="/css/reset.css" media="all" />
+    <link rel="stylesheet" href="/css/bootstrap-custom.css" media="all" />
+    <link rel="stylesheet" href="/css/module.css" media="all" />
+    <script src="/vendor/jquery-match-height/jquery.matchHeight-min.js"></script>
+
+    <link rel="stylesheet" href="/css/w2ui-1.5.rc1.min.css" media="all" />
+    <script src="/js/w2ui-1.5.rc1.js"></script>
+
+    <!-- -->
+<script type="text/javascript">
+<!--
 function execute_precheck(){
     if (window.confirm('ＯＫをクリックすると処理を実行します')) {
         return true;
@@ -33,6 +46,7 @@ function conlog(msg) {
         console.log(msg);
     }
 }
+
 // -->
 </script>
 
@@ -49,11 +63,11 @@ function conlog(msg) {
 
         <div id="content">
             <div id="content-inner" class="clearfix">
-<?php if (!isset($disable_sidebar) || $disable_sidebar == FALSE): ?>
-                <div class="content-left">
-<?php echo $content_sidebar; ?>
-                </div>
-<?php endif; ?>
+<?php //if (!isset($disable_sidebar) || $disable_sidebar == FALSE): ?>
+<!--                <div class="content-left">-->
+<?php //echo $content_sidebar; ?>
+<!--                </div>-->
+<?php //endif; ?>
                 <div class="content-right">
 <?php echo $content_body; ?>
                 </div>
