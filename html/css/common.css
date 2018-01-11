@@ -722,7 +722,7 @@ select:-moz-focusring {
   font-size: 10px;
 }
 .content01-form-checkbox {
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 .content01-form-submit input {
   padding: 10px;
@@ -771,6 +771,7 @@ select:-moz-focusring {
 }
 .content02-form-text {
   position: relative;
+  margin-bottom: 0px!important;
 }
 .content02-form-text input {
   margin-bottom: 15px;
@@ -1494,4 +1495,9 @@ select:-moz-focusring {
 
 /* 1200～∞ */
 @media (min-width: 1200px) {
+}
+.err_msg{
+  color: red;
+  height: 30px;
+  font-size: 12px;
 }

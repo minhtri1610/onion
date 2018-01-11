@@ -16,25 +16,26 @@
                     <div class="content05-main">
                         <div class="content05-main-inner">
                             <div>
-                                <form action="<?php echo site_url('admin/edit-subject/'.$get_subject['id'])?>" method="post">
+                                <form action="<?php echo site_url('admin/create-bus-stop/')?>" method="post">
                                     <div class="form-group">
-                                        <label class="col-md-2 col-xs-5">
-                                            科目コード
+                                        <label class="col-md-2 col-xs-7">
+                                            乗車場所コード
                                         </label>
-                                        <input class="form-control col-md-2" type="text" name="subject_code" value="<?php echo $get_subject['subject_code']?>">
+                                        <input class="form-control col-md-2" type="text" name="bus_stop_code" required>
                                     </div>
-                                    <br>
+                                    <br/>
+                                    <br/>
                                     <div class="form-group">
-                                        <label class="col-md-2 col-xs-5">
-                                            科目名
+                                        <label class="col-md-2 col-xs-7">
+                                            乗車場所
                                         </label>
-                                        <input class="form-control col-md-4" type="text" name="subject_name" value="<?php echo $get_subject['subject_name']?>">
+                                        <input class="form-control col-md-4" type="text" name="bus_stop_name" required>
                                     </div>
-                                    <br>
+                                    <br/>
+                                    <br/>
                                     <div class="form-group">
-                                        <div class="col-md-2 col-xs-3">
-                                        </div>
-                                        <button class="submit">更新</button>
+                                        <label class="col-md-1 col-xs-3"></label>
+                                        <button class="submit">新規登録</button>
                                     </div>
                                 </form>
                             </div>

@@ -16,19 +16,19 @@
                     <div class="content05-main">
                         <div class="content05-main-inner">
                             <div>
-                                <form action="<?php echo site_url('admin/edit-subject/'.$get_subject['id'])?>" method="post">
+                                <form action="<?php echo site_url('admin/create-subject/')?>" method="post">
                                     <div class="form-group">
                                         <label class="col-md-2 col-xs-5">
                                             科目コード
                                         </label>
-                                        <input class="form-control col-md-2" type="text" name="subject_code" value="<?php echo $get_subject['subject_code']?>">
+                                        <input class="form-control col-md-2" type="text" name="subject_code" required>
                                     </div>
                                     <br>
                                     <div class="form-group">
                                         <label class="col-md-2 col-xs-5">
                                             科目名
                                         </label>
-                                        <input class="form-control col-md-4" type="text" name="subject_name" value="<?php echo $get_subject['subject_name']?>">
+                                        <input class="form-control col-md-4" type="text" name="subject_name" required>
                                     </div>
                                     <br>
                                     <div class="form-group">

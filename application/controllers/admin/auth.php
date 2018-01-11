@@ -17,11 +17,62 @@ class Auth extends ADMIN_Controller {
     */
     public function index() {
         if ($this->error_flg) return;
-        try {
+        try 
+        {
+            $this->login();
             admin_layout_view('auth_index', $this->viewVar);
-        } catch (Exception $e) {
+        } 
+        catch (Exception $e) 
+        {
             $this->_show_error($e->getMessage(), $e->getTraceAsString());
         }
+    }
+
+    public function login()
+    {
+        if(isset($_POST['user']) && isset($_POST['pass']))
+        {
+            $data = [];
+            $user_name = trim($this->input->post('user'));
+            // $pass = trim($this->input->post('pass'));
+            $pass = trim($this->input->post('pass'));
+            if(isset($_SESSION['admin_account']))
+            {
+                $this->session->sess_destroy();
+            }
+            //hash pass
+            $options = [ 'cost' => 10, 'salt' => 'asdfqwezxcvrtyufghjvbnmuiop123456789'.$user_name ];
+            $pass_hash = password_hash($pass, PASSWORD_BCRYPT, $options);
+
+            $data['pass'] = $pass_hash;
+
+            $this->load->model('db/m_student_model','student_model');
+            $data['rel'] = $this->student_model->check_account($user_name, $pass_hash);
+            $leng_rel = count($data['rel']);
+            if($leng_rel === 1)
+            {
+                $admin_account_val = array(
+                    'email'     => $user_name,
+                    'logged_in' => TRUE,
+                );
+                $this->session->set_userdata('admin_account',$admin_account_val);
+                
+                $data['status'] = "OK";
+            }
+            else
+            {
+                $data['status'] = "FAIL";
+            }
+            echo json_encode($data);	
+            die();
+        }
+        
+    }
+    public function logout(){
+        
+        $this->session->sess_destroy('admin_account');
+        echo json_decode(1);
+        die();
     }
 
 }

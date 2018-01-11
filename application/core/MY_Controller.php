@@ -29,8 +29,9 @@ class BATCH_Controller extends CI_Controller {
         $this->config->load('my_config', TRUE);
         $_config2 = $this->config->item('my_config');
         $this->configVar = $this->viewVar['config'] = array_merge($_config, $_config2);
-    
+        
         if (isset($_SERVER['argv'])) {
+
             $argv = $_SERVER['argv'];
             array_shift($argv);
 
@@ -42,7 +43,6 @@ class BATCH_Controller extends CI_Controller {
                 $this->options = $argv;
             }
             $this->writeLog(print_r($this->options, TRUE));
-
 
         } else {
             $this->script_info = '';
@@ -394,7 +394,7 @@ class API_Controller extends CI_Controller {
 // フロント用規定コントローラー
 //===========================================================
 class FRONT_Controller extends CI_Controller {
-
+    
     // ページネーション設定
     const VALUE_PAGINATION_LIMIT = 5;    // 5件/1ページ
     const VALUE_PAGINATION_LINKS = 7;    // ページリンク数
@@ -466,6 +466,7 @@ class FRONT_Controller extends CI_Controller {
         $this->load->helper('front_layout');
         $this->load->library('form_validation');
         $this->load->library('session');
+        $this->load->helper('file');
 
         // 環境ごとの設定
         $this->_setenv();
@@ -532,21 +533,20 @@ class FRONT_Controller extends CI_Controller {
      * @return 
      */
     protected function _doAuthUser() {
-        return;
+        // return;
         try {
             // 非ログインでもログインページにリダイレクトしないクラス
             $auth_exclude_class = array(
                 "auth",
-                "entry",
+                // "entry",
             );
 
             $account = $this->session->userdata('user_account');
             if (in_array($this->router->fetch_class(), $auth_exclude_class)) {
-                ;
             } else {
                 if (empty($account)) {
                     // 非ログインならログインページにリダイレクト
-                    redirect('/auth/');
+                    redirect('/auth');
                 }
             } 
             // ログイン済みならアカウント情報を取得
@@ -554,9 +554,10 @@ class FRONT_Controller extends CI_Controller {
                 $this->viewVar['user_account'] = $this->accountVar = $account;
                 if (empty($this->accountVar)) {
                     $this->session->sess_destroy();
-                    redirect('/auth/');
+                    redirect('/auth');
                 }
             }
+
 
         } catch (Exception $e) {
             $this->_show_error($e->getMessage(), $e->getTraceAsString());
@@ -806,7 +807,7 @@ class ADMIN_Controller extends CI_Controller {
      */
     protected function _setenv() {
         if (ENVIRONMENT == 'local') {
-            $this->output->enable_profiler(true);
+            $this->output->enable_profiler(false);
         }
         require_once( realpath( dirname(__FILE__) . "/../libraries/dBug.php"));
     }
@@ -817,32 +818,31 @@ class ADMIN_Controller extends CI_Controller {
      * @return 
      */
     protected function _doAuthUser() {
-        try {
-            // 非ログインでもログインページにリダイレクトしないクラス
-            $auth_exclude_class = array(
-                "auth",
-            );
-            
-            $account = $this->session->userdata('admin_account');
-            if (in_array($this->router->fetch_class(), $auth_exclude_class)) {
-                ;
-            } else {
-                if (empty($account)) {
-                    // 非ログインならログインページにリダイレクト
-                    redirect('/admin/auth/');
-                }
-            } 
-            // ログイン済みならアカウント情報を取得
-            if (!empty($account)) {
-                $this->viewVar['admin_account'] = $this->accountVar = $account;
-                if (empty($this->accountVar)) {
-                    $this->session->sess_destroy();
-                    redirect('/admin/auth/');
-                }
-            }
-        } catch (Exception $e) {
-            $this->_show_error($e->getMessage(), $e->getTraceAsString());
-        }
+       try {
+           // 非ログインでもログインページにリダイレクトしないクラス
+           $auth_exclude_class = array(
+               "auth",
+           );
+
+           $account = $this->session->userdata('admin_account');
+           if (in_array($this->router->fetch_class(), $auth_exclude_class)) {
+           } else {
+               if (empty($account)) {
+                   // 非ログインならログインページにリダイレクト
+                   redirect('/admin/auth/');
+               }
+           }
+           // ログイン済みならアカウント情報を取得
+           if (!empty($account)) {
+               $this->viewVar['admin_account'] = $this->accountVar = $account;
+               if (empty($this->accountVar)) {
+                   $this->session->sess_destroy();
+                   redirect('/admin/auth/');
+               }
+           }
+       } catch (Exception $e) {
+           $this->_show_error($e->getMessage(), $e->getTraceAsString());
+       }
     }
 
     /**
