@@ -22,7 +22,7 @@ function front_layout_view($body, $data = array()) {
                         $device,
                         $lang
                  );
-    $data['js_view'] = $body;
+
 	$CI = get_instance();
 
 	$layout_data['header_meta'] = $CI->load->view( $directory . '/layout/header_meta', $data, TRUE);

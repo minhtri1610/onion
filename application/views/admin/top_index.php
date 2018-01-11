@@ -1,9 +1,1 @@
-
-
-
-<!-- pagetop170 -->
-<!--==================================================-->
-
-<button class="pagetop170">
-    <img src="/images/common/icon-16.svg">
-</button>
+管理画面トップ

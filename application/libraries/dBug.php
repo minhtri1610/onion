@@ -59,12 +59,8 @@ class dBug {
 	var $bInitialized = false;
 	var $bCollapsed = false;
 	var $arrHistory = array();
-
-	function __construct()
-    {
-    }
-
-    //constructor
+	
+	//constructor
 	function dBug($var,$forceType="",$bCollapsed=false) {
 		//include js and css scripts
 		if(!defined('BDBUGINIT')) {

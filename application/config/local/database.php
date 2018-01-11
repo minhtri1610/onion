@@ -51,8 +51,8 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
-$db['default']['password'] = '';
-$db['default']['database'] = 'hanamigawa_sw_vietvang';
+$db['default']['password'] = 'rootroot';
+$db['default']['database'] = 'hanamigawa_sw';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

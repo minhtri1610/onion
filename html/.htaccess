@@ -14,11 +14,11 @@ Deny from env=shutout
 #
 # BASIC認証設定
 #
-AuthUserFile D:/Project/CI/Onion_2017/Source/html
+AuthUserFile /var/www/.htpasswd
 AuthGroupFile /dev/null
 AuthName "Secret Area"
 AuthType Basic
-#require valid-user
+require valid-user
 
 #
 # キャッシュさせない

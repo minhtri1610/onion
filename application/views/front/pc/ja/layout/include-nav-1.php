@@ -35,7 +35,7 @@
               <li><a href="#">指導状況・泳力認定書</a></li>
               <li><a href="#">会員情報変更申請</a></li>
             </ul>
-            <div class="nav0001sp-logout"><a href="#" id = "btn_logout_user" >ログアウト</a></div>
+            <div class="nav0001sp-logout"><a href="#">ログアウト</a></div>
           </div>
         </div><!-- .nav0001sp-main -->
 

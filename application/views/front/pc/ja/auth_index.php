@@ -1,5 +1,9 @@
 <main class="frame-main">
   <article class="frame-article">
+
+
+
+
     <!-- content01 -->
     <!--==================================================-->
 
@@ -7,28 +11,28 @@
       <div class="container">
         <div class="content01-main">
           <h1 class="content01-title">Login</h1>
-
-          <form class="content01-form" action="" method="" id = "login_customer">
+          <form class="content01-form" action="" method="">
             <div class="content01-form-text content01-form-text-1">
               <p class="content01-text-1">会員番号またはメールアドレス</p>
-              <input type="text" name="users" value="" id = "users">
+              <input type="text" name="content01-form-text-1" value="">
             </div>
             <div class="content01-form-text content01-form-text-2">
               <p class="content01-text-1">パスワード</p>
-              <input type="password" name="pass" value="" id = "pass">
+              <input type="text" name="content01-form-text-2" value="">
             </div>
+
             <div class="content01-form-checkbox content01-form-checkbox-2">
               <span class="content01-text-2">
-                <input type="checkbox" name="checkbox_save" value="" id = "checkbox_save">
+                <input type="checkbox" name="content01-form-checkbox-2" value="">
                 会員番号を記録する
               </span>
-              <div class="err_msg"><!-- message -->
-              </div>
             </div>
+
+
             <div class="content01-form-submit mb-xs-30">
-              <input class="alpha" type="button" value="送信" id = "login_btn" >
+              <input class="alpha" type="submit" value="送信">
             </div>
-            <a class="content01-forget-pass" href="<?php echo base_url('auth/forgot-password')?>">パスワードを忘れたら？</a>
+            <a class="content01-forget-pass" href="#">パスワードを忘れたら？</a>
           </form>
 
         </div>

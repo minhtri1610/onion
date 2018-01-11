@@ -28,8 +28,6 @@ class Course extends ADMIN_Controller {
     public function edit($id = NULL) {
         if ($this->error_flg) return;
         try {
-            $data['title'] =" 練習コース編集";
-            $this->viewVar = $data;
             admin_layout_view('course_edit', $this->viewVar);
         } catch (Exception $e) {
             $this->_show_error($e->getMessage(), $e->getTraceAsString());
